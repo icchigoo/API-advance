@@ -1,12 +1,15 @@
-const express = require ("express");
+const express = require("express");
+const dbConnect = require("./config/dbconnect");
+
 const app = express();
-const dotenv = require ("dotenv").config();
+
+const dotenv = require('dotenv').config();
 const PORT = process.env.PORT || 4000;
 
 
-app.use('/', (req, res) => {
-    res.send("Hello from server side");
-})
+dbConnect();
+
 app.listen(PORT, () => {
-    console.log(`Srver is running in PORT${PORT}`);
-})
+  console.log(`Server is running  at PORT ${PORT}`);
+});
+
